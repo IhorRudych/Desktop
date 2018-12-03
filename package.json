@@ -18,5 +18,9 @@
   "homepage": "https://github.com/IhorRudych/Desktop#readme",
   "devDependencies": {
     "electron": "^3.0.10"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "plotly": "^1.0.6"
   }
 }
