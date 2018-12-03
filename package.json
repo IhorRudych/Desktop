@@ -1,0 +1,22 @@
+{
+  "name": "axcendlc",
+  "version": "1.0.0",
+  "description": "Desktop version of client for FocusLC",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IhorRudych/Desktop.git"
+  },
+  "author": "Ihor Rudych",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IhorRudych/Desktop/issues"
+  },
+  "homepage": "https://github.com/IhorRudych/Desktop#readme",
+  "devDependencies": {
+    "electron": "^3.0.10"
+  }
+}
