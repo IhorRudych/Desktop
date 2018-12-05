@@ -3534,12 +3534,12 @@
 
 	#sidebar {
 		padding: 2.5em 2.5em 0.5em 2.5em ;
-		background: #312450;
+		background: #4A4A4A;
 		cursor: default;
 		height: 100vh;
 		left: 0;
-		overflow-x: hidden;
-		overflow-y: auto;
+		/*overflow-x: hidden;
+		overflow-y: auto;*/
 		position: fixed;
 		text-align: right;
 		top: 0;
