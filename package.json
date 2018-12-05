@@ -17,10 +17,14 @@
   },
   "homepage": "https://github.com/IhorRudych/Desktop#readme",
   "devDependencies": {
+    "@types/node": "^10.12.12",
     "electron": "^3.0.10"
   },
   "dependencies": {
+    "@types/plotly.js": "^1.41.0",
     "fs": "0.0.1-security",
-    "plotly": "^1.0.6"
+    "gl": "^4.1.1",
+    "plotly": "^1.0.6",
+    "plotly.js": "^1.42.5"
   }
 }

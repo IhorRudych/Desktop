@@ -1,5 +1,5 @@
 const { app, BrowserWindow } = require('electron')
-var plotly = require('plotly')("IhorRudych", "DdQ6kELrUrOx434A7vc6")
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
