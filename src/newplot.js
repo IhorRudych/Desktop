@@ -62,8 +62,8 @@ const Plot = require('../node_modules/plotly.js');
     var layout_config = {
         autosize: true,
         showlegend: false,
-        paper_bgcolor: 'rgb(20,20,20)',
-        plot_bgcolor: 'rgb(20,20,20)',
+        paper_bgcolor: 'rgb(0,0,0)',
+        plot_bgcolor: 'rgb(0,0,0)',
         //            margin: {l: 32, r: 32, b: 64, t: 32, pad: 0},
         margin: { l: 8, r: 0, b: 0, t: 0, pad: 0 },
         xaxis: {
@@ -94,9 +94,9 @@ const Plot = require('../node_modules/plotly.js');
             //            autotick: true,
             //            tickmode: 'none',
             //            ticks: '',
-            tickcolor: 'rgb(211, 211, 211)',
+            tickcolor: 'rgb(255, 255, 255)',
             tickfont: {
-                color: 'rgb(211, 211, 211)',
+                color: 'rgb(255, 255, 255)',
             },
             showgrid: false,
             showline: false,
