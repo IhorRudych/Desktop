@@ -191,11 +191,7 @@ function Method2Commands(method) {
     return commands;
 }
  
-var MethodCommand = exports.Command = kind({
-    name: 'MethodCommand',
-    kind: Model,
-    primaryKey: 'id',
-    attributes: {
+var MethodCommand = {
         id: null,
         x: null,
         y: null,
@@ -204,7 +200,6 @@ var MethodCommand = exports.Command = kind({
         valves_a: null,
         valves_b: null,
     }
-});
 
 var MethodCommands = exports.Commands = kind({
     name: 'MethodCommands',

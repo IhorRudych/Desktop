@@ -4,8 +4,8 @@ function(n) {
  constants: {
  sectionTemplate: '.section-template',
  contentContainer: '#wrapper',
- startSectionMenuItem: '#test-menu',
- startSection: '#test'
+ startSectionMenuItem: '#testpanel-menu',
+ startSection: '#testpanel'
  },
 
  importSectionsToDOM: function() {
@@ -35,7 +35,7 @@ function(n) {
  showStartSection: function() {
  $(this.constants.startSectionMenuItem).click()
  $(this.constants.startSection).show()
- //$(this.constants.startSection + ' section').show()
+ $(this.constants.startSection + ' section').show()
  },
 
  hideAllSections: function() {
@@ -45,6 +45,7 @@ function(n) {
  init: function() {
  this.importSectionsToDOM()
  this.setMenuOnClickEvent()
+ this.hideAllSections()
  this.showStartSection()
  }
  };

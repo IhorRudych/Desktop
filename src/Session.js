@@ -1,11 +1,6 @@
 /**/
 
-var kind = require('enyo/kind'),
-    Model = require('enyo/Model');
-
-var PressurizeSettings = kind({
-    kind: Model,
-    attributes: {
+var PressurizeSettings = {
         target_pressure_a: "auto",
         target_pressure_b: "auto",
         error_band: 50,
@@ -14,14 +9,14 @@ var PressurizeSettings = kind({
         phase2_flow_rate: "auto",
         interpolation_x: 4.5,
         interpolation_y: 6000
-    }
-});
+    };
 
-module.exports = kind({
-    name: 'tx.Session',
-    id: null,
-    user: null,
-    device: null,
-    lasLogin: null,
-    pressurize: new PressurizeSettings()
-});
+function Session(){
+    var id;
+    var user;
+    var device;
+    var lasLogin;
+    var pressurize = new PressurizeSettings();
+}
+module.exports.Session = Session;
+ 

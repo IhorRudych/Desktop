@@ -8,6 +8,7 @@
     Model = require('enyo/Model'),
     Collection = require('enyo/Collection');*/
 var kue = require('kue'),
+    ReadHandler = require('./ReadHandler')
     Model = require('sqlite3').verbose();
 var UsbDevice = require('./UsbDevice.js');
 
@@ -24,8 +25,8 @@ var Device = exports.Device({
         favorite: false
     }
 });
-var Devices = kind({kind: Collection, model: Device});
-
+var Devices = {Collection, Device}; //kind({kind: Collection, model: Device});
+var queue = kue.createQueue();
 exports.Manager = kind({
     name: 'tx.NetworkManager',
     published: {
@@ -62,14 +63,14 @@ exports.Manager = kind({
         this.set('connectedDevice', null);
         this.set('scanEnabled', true);
         this.heartbeat();
-        this.app.$.ReadHandler.start();
+        this.ReadHandler.start();
     },
     disconnect: function() {
 //        console.log('NetworkManager disconnect');
         this.set('requestedDevice', null);
         this.set('scanEnabled', false);
         this.app.$.ReadHandler.stop();
-        EnyoJob.stop("Heartbeat");
+        queue.done("Heartbeat");
         this.set('connectedDevice', null);
         this.set('state', false);
     },
@@ -85,7 +86,7 @@ exports.Manager = kind({
         var that = this;
         if (this.get('scanEnabled')) {
 //            console.log('Network Manager scanning ... %O', period);
-        var queue = kue.createQueue();
+        
            queue.create("Scanner", this.scan, period);
             UsbDevice.list(location.host).then(v => {
                 if (v === undefined || v.length != 1) {
@@ -121,8 +122,8 @@ exports.Manager = kind({
         // NOTE: The hearbeat function here only exists to verify that the bridge is reachable. 
         var PERIOD = 1000;
         var queue = kue.createQueue();
-        queue.create({"Heartbeat", bind(this, "heartbeat"), PERIOD}).save();
-        queue.process("HeartbeatJob", bind(this, "heartbeatJob"), PERIOD);
+       // queue.create({"Heartbeat", PERIOD}).save();
+        queue.process("HeartbeatJob", function(){this.heartbeatJob()});
     },
     heartbeatJob: function() {
         var that = this;

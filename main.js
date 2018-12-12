@@ -1,4 +1,7 @@
 const { app, BrowserWindow } = require('electron')
+const Session = require('./src/Session.js')
+const Reader = require('./src/ReadHandler.js')
+//const Network = require('./src/Network.js')
 
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -39,6 +42,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
+ 
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (win === null) {

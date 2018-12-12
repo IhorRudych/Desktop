@@ -1,10 +1,11 @@
 /**/
 
-var Promise = require('../plugins/bluebird-3.5.0.min.js');
+var Promise = require('./plugins/bluebird-3.5.0.min.js');
 
 Promise.config({
     longStackTraces: true
 });
+
 
 function List(host) {
     if (host === null) {
@@ -108,7 +109,7 @@ function Echo (host, data) {
 
 class UsbDevice {
     constructor() {
-        this.addr = null;
+        this.addr = '192.168.1.225';
         this.write_successes = 0;
         this.write_errors = 0;
         this.write_count = 0;
