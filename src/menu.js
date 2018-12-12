@@ -35,7 +35,7 @@ function(n) {
  showStartSection: function() {
  $(this.constants.startSectionMenuItem).click()
  $(this.constants.startSection).show()
- $(this.constants.startSection + ' section').show()
+ //$(this.constants.startSection + ' section').show()
  },
 
  hideAllSections: function() {
