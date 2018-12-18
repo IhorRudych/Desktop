@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require('electron')
-const Session = require('./src/Session.js')
-const Reader = require('./src/ReadHandler.js')
+//const Session = require('./src/Session.js')
+//const Reader = require('./src/ReadHandler.js')
 //const Network = require('./src/Network.js')
 
 
