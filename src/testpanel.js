@@ -5,11 +5,7 @@ const ipc = electron.ipcRenderer
 //var Plotly = require('plotly')("IhorRudych", "DdQ6kELrUrOx434A7vc6");
 var fs = require('fs')
 var parse = require('csv-parse')
-var JQ = jQuery = require('jquery')
-JQ.csv = require('jquery-csv')
 var Plotly = require('plotly.js')
-var async = require('async')
-//import * as Plotly from 'plotly.js';
 
 var data_config = [
     // Channel 0
@@ -143,49 +139,36 @@ var global_config = {
         'toggleSpikelines']
 };
 
-var arrx = new Array;
-var arry = new Array;
-var arry2 = [];
-var sample = './src/data3.csv';
+
+var sample = './src/data2.csv';
 fs.readFile(sample, 'utf-8', (err, data) => {
     if(err){
         alert("An error ocurred reading the file :" + err.message);
         return;
     }
     parse(data, {columns: false, trim: false}, function(err, rows) {
- //     console.log(rows); 
-           
+        var arrx = new Array;
+        var arry = new Array;
+        var arry2 = new Array; 
+        
         for (i=0;i<rows.length;i++){
            
-            arrx[i] = parseFloat(rows[i][0]);
-            arry[i] = parseFloat(rows[i][1]);
-            //var y2 = parseFloat(rows[row][2]);
-           // console.log(x);
-           // console.log(y);
+           var x = parseFloat(rows[i][0]);
+           var y = parseFloat(rows[i][1]);
+           var y2 = parseFloat(rows[i][2]);
+           
 
-           // arrx.push(x);
-           // arry.push(y);
+            arrx.push(x);
+            arry.push(y);
+            arry2.push(y2);
         }
+       trace1 = {x:arrx, y:arry};
+       trace2 = {x:arrx, y:arry2};
+
+       myDiv = document.getElementById('MyDiv');
+       Plotly.plot(myDiv,[trace1, trace2], layout_config, global_config);
         //return;
       })
       return; 
 });
 
-console.log(arrx);
-console.log(arry);
-
-/*
-var lar = [];
-var bar = [];
-for (i=0;i<arrx.length - 1;i++){
-    var pair = arrx[i];
-    console.log(parseFloat(pair));
-    lar.push(pair);
-    var pair2 = arry(i);
-    bar.push(pair2);
-}*/
-trace1 = {x:arrx, y:arry};
-trace2 = {x:[1,20,30,45,67,120,134,136,142,152,158,161,174,180], y:[1,20,2,131,3,145,1,290,8,340,7,127,5,2]};
-
-myDiv = document.getElementById('MyDiv');
-Plotly.plot(myDiv,[trace1, trace2], layout_config, global_config);
