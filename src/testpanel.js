@@ -70,8 +70,8 @@ var layout_config = {
     showlegend: false,
     paper_bgcolor: 'rgb(20,20,20)',
     plot_bgcolor: 'rgb(20,20,20)',
-    //            margin: {l: 32, r: 32, b: 64, t: 32, pad: 0},
-    margin: { l: 8, r: 0, b: 0, t: 0, pad: 0 },
+       margin: {l: 32, r: 32, b: 64, t: 32, pad: 0},
+   // margin: { l: 8, r: 0, b: 0, t: 0, pad: 0 },
     xaxis: {
 //                title: 'minutes',
 //                titlefont: {
@@ -80,7 +80,7 @@ var layout_config = {
 //                },
         autorange: true,
         rangemode: 'tozero',
-        //    autotick: true,
+        autotick: true,
         //    tickmode: 'none',
         //    ticks: '',
         tickcolor: 'rgb(255, 255, 255)',
@@ -96,6 +96,7 @@ var layout_config = {
     },
     yaxis: {
         autorange: true,
+        //range:[0,4300],
         rangemode: 'nonnegative',
         //            autotick: true,
         //            tickmode: 'none',
@@ -140,7 +141,7 @@ var global_config = {
 };
 
 
-var sample = './src/data2.csv';
+var sample = './src/Data/data8.csv';
 fs.readFile(sample, 'utf-8', (err, data) => {
     if(err){
         alert("An error ocurred reading the file :" + err.message);
